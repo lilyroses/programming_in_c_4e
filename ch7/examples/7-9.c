@@ -1,0 +1,35 @@
+// 7-9.c - Find min value in array
+#include <stdio.h>
+
+int findMinValue(int values[10]) {
+    int minValue;
+    int i;
+
+    minValue = values[0];
+
+    for (i = 1; i < 10; ++i) {
+        if (values[i] < minValue) {
+            minValue = values[i];
+        }
+    }
+
+    return minValue;
+}
+
+int main(void) {
+    int scores[10];
+    int i;
+    int minScore;
+    int findMinValue(int values[10]);
+
+    printf("Enter 10 scores\n");
+
+    for (i = 0; i < 10; ++i) {
+        scanf("%i", &scores[i]);
+    }
+
+    minScore = findMinValue(scores);
+    printf("Minimum score is: %i\n", minScore);
+
+    return 0;
+}
