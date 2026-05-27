@@ -5,65 +5,40 @@
 #include <stdio.h>
 
 
-double absValue(double x);
-double squareRoot(double n);
-_Bool prime(int x);
+_Bool prime(int);
 
 
-// get absolute value of a number
-double absValue(double x) {
-    if (x < 0)
-        x = -x;
-    return x;
-}
-
-
-// compute square root of number
-double squareRoot(double x) {
-    const double epsilon = 0.0001;
-    double guess = 1.0;
-    while (absValue(guess * guess - x) >= epsilon) {
-        guess = (x / guess + guess) / 2.0;
-    }
-    return guess;
-}
-
-
-// determine if number is prime
+/* functions */
 _Bool prime(int x) {
-    _Bool is_prime = 1;
-    double sqRoot;
     int i;
 
-    if (x < 2) {
-        is_prime = 0;
-        return is_prime;
-    } else if (x == 2 || x == 3) {
-        is_prime = 1;
-        return is_prime;
-    } else if (x > 3) {
-        sqRoot = squareRoot((double) x);
-        for (i = 0; i < (int) sqRoot; ++i) {
-            printf("\ni = %i\n", i);
+    if (x < 3) {
+        return 0;
+    } else if (x % 2 == 0) {
+        return 0;
+    } else {
+        for (i = 3; i < x - 1; i += 2) {
             if (x % i == 0) {
-                is_prime = 0;
-                return is_prime;
+                return 0;
             }
         }
     }
-    return is_prime;
+    return 1;
 }
 
 
 int main(void) {
-    double absValue(double);
-    double squareRoot(double);
-    _Bool prime(int);
-
     int x;
+    int i;
     _Bool is_prime;
 
-    is_prime = prime(29);
-    printf("\n%i: %c\n", x, is_prime);
+    x = 4;
+    is_prime = prime(x);
+    if (is_prime == 0) {
+        printf("\n%i is not a prime number\n", x);
+    } else if (is_prime == 1) {
+        printf("\n%i is a prime number\n", x);
+    }
+
     return 0;
 }
