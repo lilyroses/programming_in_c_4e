@@ -1,9 +1,9 @@
+// Program 6.1 Working with an Array
 #include <stdio.h>
-
 
 int main(void) {
     int values[10];
-    int idx;
+    int index;
 
     values[0] = 197;
     values[2] = -100;
@@ -12,10 +12,9 @@ int main(void) {
     values[9] = values[5] / 10;
     --values[2];
 
-    for (idx = 0; idx < 10; ++idx) {
-        printf("values[%i] = %i\n", idx, values[idx]);
+    for (index = 0; index < 10; ++index) {
+        printf("values[%i] = %i\n", index, values[index]);
     }
 
     return 0;
-
 }

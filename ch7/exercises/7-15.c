@@ -1,4 +1,9 @@
-// Example 7-15.c - Converting a positive int to another base
+/* Exercise 7-15.c 
+ *
+ * Modify program 7-15.c so that the user is asked again to type in the
+ * value of the base if an invalid base is entered, and continually asked for
+ * the value of the base until a valid response is given.
+ */
 #include <stdio.h>
 
 
@@ -9,22 +14,23 @@ int         base;
 int         digit = 0;
 
 /* functions */
-void getNumAndBase(void);
-void convertNum(void);
-void displayConvertedNum(void);
+void    getNumAndBase (void);
+void    convertNum (void);
+void    displayConvertedNum (void);
 
 
-// get the number to convert (in base-10) and the base to convert it to
 void getNumAndBase(void) {
     printf("\nNumber to convert: ");
     scanf("%li", &numToConvert);
 
     printf("Base: ");
     scanf("%i", &base);
-
     if (base < 2 || base > 16) {
-        printf("Error: Invalid base. Must be between 2-16\n");
-        base = 10;
+        do {
+            printf("Base: ");
+            scanf("%i", &base);
+        }
+        while (base < 2 || base > 16);
     }
 }
 
@@ -56,6 +62,9 @@ void displayConvertedNum(void) {
 
 
 int main(void) {
+    // void getNumAndBase(void);
+    // void convertNum(void);
+    // void displayConvertedNum(void);
 
     getNumAndBase();
     convertNum();

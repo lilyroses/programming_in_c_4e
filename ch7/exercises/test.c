@@ -1,10 +1,24 @@
 #include <stdio.h>
 
+
+int getNum(void) {
+    int num;
+
+    printf("\nEnter num: ");
+    scanf("%i", &num);
+
+    return num;
+}
+
+
 int main(void) {
-    double x = 1.2345;
-    int y = (int) x;
+    int num;
+    int getNum();
 
-    printf("\nx = %f; y = %i\n", x, y);
+    do {
+        num = getNum();
+    } while (num < 10);
 
+    printf("\nYou entered %i\n", num);
     return 0;
 }
