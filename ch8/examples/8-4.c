@@ -90,7 +90,7 @@ int main(void) {
 
     nextDay = dateUpdate(thisDay);
 
-    printf("\nTomorrow's date is %i/%i/%.2i\n",
+    printf("\nTomorrow's date is %.2i/%.2i/%.2i\n",
             nextDay.month, nextDay.day, nextDay.year);
 
     return 0;

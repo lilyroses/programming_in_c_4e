@@ -1,4 +1,4 @@
-// Program 6.1 Working with an Array
+// Example 6.1 - Working with an array
 #include <stdio.h>
 
 int main(void) {

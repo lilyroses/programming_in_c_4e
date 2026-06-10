@@ -10,14 +10,20 @@ int main(void) {
         ratingCounters[i] = 0;
     }
 
-    printf("Enter your responses:\n");
+    printf("Enter your responses\n");
 
-    for (i = 1; i <= 20; ++i) {
+    for (i = 1; response != 999; ++i) {
+        printf("Rating: ");
         scanf("%i", &response);
 
+        if (response == 999) {
+            break;
+        }
+        
         if (response < 1 || response > 10) {
             printf("Bad response: %i\n", response);
-        } else {
+        } 
+        else {
             ++ratingCounters[response];
         }
     }
