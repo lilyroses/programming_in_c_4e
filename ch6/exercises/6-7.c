@@ -4,5 +4,55 @@
  * Sieve of Eratosthenes. The algorithm for this procedure is presented
  * here. Write a program that implements this algorithm. Have the
  * program find all prime numbers up to n = 150.
+ * 
+ * Sieve of Eratosthenes Algorithm: Display All Primes Between 1 and n
+ * -------------------------------------------------------------------
+ *  1: Define array of integers P. Set all elements P[i]
+ *     to 0, 2 <= i <= n.
+ *  2: Set i to 2.
+ *  3: If i > n, the algorithm terminates.
+ *  4: If P[i] is 0, then i is prime.
+ *  5: For all positive integer values of j, such that i x j ≤ n, set
+ *     P[i*j] to 1.
+ *  6: Add 1 to i and go to step 3.
+ */
+#include <stdio.h>
 
-*/
+
+int main(void) {
+    int     i;
+    int     j;
+    int     n = 150;
+    /* step 1: define array of integers, P, and set all elements to 0 */
+    int     P[151] = {};
+    
+    for (i = 2; i <= n; ++i) {
+        P[i] = 0;
+    }
+    /* end step 1*/
+
+    /* step 2: set i to 2 */
+    i = 2;
+    /* step 3: if i > n, end the loop */
+    while (i <= n) {
+        /* step 4: if P[i] is 0, then i is prime */
+        if (P[i] == 0) {
+            /* step 5: set all multiples of i (j*i) to 1. */
+            for (j = i*i; j <= n; j += i) {
+                P[j] = 1;
+            }
+        }
+        /* step 6: increment i and go back to step 3*/
+        ++i;
+    }
+
+    /* print all primes */
+    for (i = 0; i <= n; ++i) {
+        if (P[i] == 0) {  
+            printf("%i  ", i);
+        }
+    }
+    printf("\n");
+
+    return 0;
+}
