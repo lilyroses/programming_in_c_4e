@@ -14,86 +14,52 @@ struct  date {
     int     day;
     int     year; 
 };
-int     f(int month, int year);
-int     g(int month);
-int     N(struct date);
-int     findNumDaysBetweenDates(struct date thisDate, struct date nextDate);
-void    formatDate(struct date aDate);
 
-/* functions */
-int f(int month, int year) {
-    int n;
-    n = year;
+int f(int year, int month);
+int g(int month);
+int N(struct date);
+
+
+int f(int year, int month) {
+    int x;
+    
+    x = year;
     if (month <= 2) {
-       n -= 1;
+        x--;
     }
-    return n;
+    return x;
 }
+
 
 int g(int month) {
-    int g;
-    
-    g = month + 1;
+    int x;
+
+    x = month + 1;
     if (month <= 2) {
-        g += 12;
+        x += 12;
     }
-    return g;
+    return x;
 }
+
 
 int N(struct date aDate) {
-    int c1;
-    int c2;
-    int i;
-    int j;
-    int F;
-    int G;
-    int N;
-
-    c1 = 1461;
-    c2 = 153;
-
-    F = f(aDate.month, aDate.year);
-    G = g(aDate.month);
-
-    i = (c1 * F) / 4;
-    j = (c2 * G) / 5;
-    N = i + j + aDate.day;
-
-    return N;
-}
-
-int findNumDaysBetweenDates(struct date thisDate, struct date nextDate) {
-    int N1;
-    int N2;
-
-    N1 = N(thisDate);
-    N2 = N(nextDate);
-
-    return N2 - N1;
-}
-
-void formatDate(struct date aDate) {
-    int month;
-    int day;
-    int year;
-
-    month = aDate.month;
-    day = aDate.day;
-    year = aDate.year;
-
-    printf("%.2i/%.2i/%.2i\n");
+    
 }
 
 
 int main(void) {
-    int numDaysBetweenDates;
 
-    struct date thisDate = { 8, 8, 2014 };
-    struct date nextDate = { 2, 22, 2015 };
+    int f_val;
+    int g_val;
 
-    thisDate.year = 2004;
-    nextDate.year = 2005;
+    struct date thisDate = { 7, 2, 2015 };
+    struct date thatDate = { 7, 16, 2015 };
 
-    numDaysBetweenDates = findNumDaysBetweenDates(thisDate, nextDate);
-    printf("There are %i days between the two dates.", numDaysBetweenDates);
+    f_val = f(thisDate.year, thisDate.month);
+    printf("f_val is %i\n", f_val);
+
+    g_val = g(thisDate.month);
+    printf("g_val is %i\n", g_val);
+
+    return 0;
 }
