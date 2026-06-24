@@ -3,10 +3,9 @@
  */
 #include <stdio.h>
 
-/* globals */
-
 
 int main(void) {
+
     struct  date {
         int     month;
         int     day;
@@ -19,7 +18,7 @@ int main(void) {
     const int daysPerMonth[12] = { 31, 28, 31, 30, 31, 30,
                                    31, 31, 30, 31, 30, 31 };
 
-    printf("\nEnter today's date (mm/dd/yyyy): ");
+    printf("\nEnter today's date (mm dd yyyy): ");
     scanf("%i%i%i", &today.month, &today.day, &today.year);
 
     if (today.day != daysPerMonth[today.month - 1]) {
