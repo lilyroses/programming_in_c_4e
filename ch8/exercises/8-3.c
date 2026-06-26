@@ -20,9 +20,11 @@ struct time {
     int     seconds;
 };
 
+
 struct time elapsed_time(struct time time1, struct time time2);
 
 
+/* functions */
 struct time elapsed_time(struct time time1, struct time time2) {
     // time deltas for hr, min, s
     int dh;
@@ -64,8 +66,8 @@ int main(void) {
 
     struct time elapsedTime;
 
-    struct time time1 = { 7, 25, 47 };
-    struct time time2 = { 3, 39, 15 };
+    struct time time1 = { 3, 45, 15 };
+    struct time time2 = { 9, 44, 3 };
 
     elapsedTime = elapsed_time(time1, time2);
 

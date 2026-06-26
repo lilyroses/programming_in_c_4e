@@ -15,11 +15,13 @@ struct  date {
     int     year; 
 };
 
+
 int f(int year, int month);
 int g(int month);
 int N(struct date aDate);
 
 
+/* functions */
 int f(int year, int month) {
     int x;
     x = year;
@@ -72,7 +74,7 @@ int main(void) {
     printf("\nEnter first date (mm/dd/yyyy): ");
     scanf("%i/%i/%i", &thisDate.month, &thisDate.day, &thisDate.year);
     
-    printf("\nEnter second date (mm/dd/yyyy): ");
+    printf("Enter second date (mm/dd/yyyy): ");
     scanf("%i/%i/%i", &thatDate.month, &thatDate.day, &thatDate.year);
 
     N1 = N(thisDate);
