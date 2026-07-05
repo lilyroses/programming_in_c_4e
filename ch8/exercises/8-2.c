@@ -16,32 +16,10 @@ struct  date {
 };
 
 
-int f(int year, int month);
-int g(int month);
 int N(struct date aDate);
 
 
 /* functions */
-int f(int year, int month) {
-    int x;
-    x = year;
-    if (month <= 2) {
-        x--;
-    }
-    return x;
-}
-
-
-int g(int month) {
-    int x;
-    x = month + 1;
-    if (month <= 2) {
-        x += 12;
-    }
-    return x;
-}
-
-
 int N(struct date aDate) {
     // constant values in the days between algorithm
     int x; 
@@ -53,8 +31,13 @@ int N(struct date aDate) {
     x = 1461;
     y = 153;
 
-    f_val = f(aDate.year, aDate.month);
-    g_val = g(aDate.month);
+    f_val = aDate.year;
+    g_val = aDate.month + 1;
+
+    if (aDate.month <= 2) {
+        f_val -= 1;
+        g_val += 12;
+    }
 
     N = x * f_val / 4 + y * g_val / 5 + aDate.day;
 

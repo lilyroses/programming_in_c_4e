@@ -63,7 +63,7 @@ int N(struct date aDate) {
         g_val += 12;
     }
 
-    N = x * f_val / 4 + y * g_val / 5 + aDate.day;
+    N = ((x * f_val) / 4) + ((y * g_val) / 5) + aDate.day;
 
     return N;
 }
@@ -92,13 +92,13 @@ int main(void) {
 
     // get date from user
     printf("\nEnter date (mm/dd/yyyy): ");
-    scanf("%i/%i/%i", &thisDate.month, &thisDate.day, &thisDate.year);
+    scanf("%d/%d/%d", &thisDate.month, &thisDate.day, &thisDate.year);
 
     // calculate the day number (0-6)
     dayNum = getDayNum(thisDate);
     
     // show the day name
-    printf("\n%02i/%02i/%02i : ",
+    printf("%02d/%02d/%d : ",
         thisDate.month, thisDate.day, thisDate.year);
 
     // use i to iterate through each char of day name
