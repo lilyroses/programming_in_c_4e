@@ -1,23 +1,23 @@
-/* Example 3-1.c */
-#include <stdio.h>
+/* Example 3-1.c - Using the Basic Data Types */
 
+#include <stdio.h>
 
 int main (void)
 {
-    int         intVar  = 100;
-    float       fltVar  = 331.79;
-    double      dblVar  = 8.44e+11;
-    char        chrVar  = 'W';
+    int     intVar = 100;
+    float   floatVar = 331.79;
+    double  doubleVar = 8.44e+11;
+    char    charVar = 'W';
 
-    _Bool       boolVar = 0;
+    _Bool   boolVar = 0;
 
-    printf("intVar = %i\n", intVar);
-    printf("floatVar = %f\n", fltVar);
-    printf("doubleVar = %e\n", dblVar);
-    printf("doubleVar = %g\n", dblVar);
-    printf("charVar = %c\n", chrVar);
-    
-    printf("boolVar = %i\n", boolVar);
+    printf ("\nintVar (%%i) = %i\n", intVar);
+    printf ("floatVar (%%f) = %f\n", floatVar);
+    printf ("doubleVar (%%e) = %e\n", doubleVar);
+    printf ("doubleVar (%%g) = %g\n", doubleVar);
+    printf ("charVar (%%c) = %c\n", charVar);
+
+    printf ("boolVar (%%i) = %i\n", boolVar);
 
     return 0;
 }
